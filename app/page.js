@@ -14,8 +14,9 @@ export default function Home() {
     const checkoutSession = await fetch('/api/checkout_session', {
       method: "POST",
       headers: {
-        origin: 'http://localhost:3000'
-      }
+        // origin: 'http://localhost:3000'
+        'Content-Type': 'application/json',
+      }    
     });
 
     const checkoutSessionJson = await checkoutSession.json();
@@ -35,6 +36,7 @@ export default function Home() {
       console.warn(error.message);
     }
   };
+  
 
   return (
     <Container maxWidth="100%" sx={{ bgcolor: "#121212", color: "#E0E0E0", minHeight: "100vh", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
